@@ -59,3 +59,34 @@ Projektin optimoitu tuotantoversio luodaan `dist/` -kansioon:
 
 ```bash
 npm run build
+
+
+## ☁️ Julkaisu (Deployment)
+
+Projekti on konfiguroitu toimimaan **Railway**-alustalla (`railway.toml`), mutta se voidaan julkaista missä tahansa staattisia sivuja tukevassa palvelussa (esim. Vercel, Netlify, GitHub Pages).
+
+**Railway-konfiguraatio:**
+* **Build command:** `npm install && npm run build`
+* **Start command:** `npx serve dist -l $PORT`
+
+## 📂 Projektin rakenne
+
+```text
+├── public/              # Staattiset tiedostot (kuvat, PDF:t, robots.txt)
+├── src/
+│   ├── modules/         # Sovelluslogiikka jaetuna moduuleihin
+│   │   ├── analytics.js # Kävijäseuranta
+│   │   ├── animations.js# Scroll-animaatiot
+│   │   ├── chat.js      # AI-chatbot logiikka
+│   │   ├── cv.js        # CV-osion interaktiivisuus
+│   │   ├── easter-egg.js# Retro-tila
+│   │   ├── language.js  # Kielivalinta
+│   │   ├── navigation.js# Mobiilivalikko ja skrollaus
+│   │   ├── translations.js # Käännöstiedostot (FI/EN)
+│   │   └── ui-utils.js  # Teema ja UI-apuohjelmat
+│   ├── main.js          # Sovelluksen entry point
+│   └── styles.css       # Tailwind-direktiivit ja kustomoidut tyylit
+├── index.html           # Pääsivu
+├── package.json         # Riippuvuudet ja skriptit
+├── tailwind.config.js   # Tailwind-asetukset
+└── vite.config.js       # Vite-asetukset
