@@ -53,7 +53,7 @@ Varmista, että koneellesi on asennettu [Node.js](https://nodejs.org/) (versio 1
     ```
     Sivusto aukeaa osoitteeseen `http://localhost:5173`.
 
-## wj Rakentaminen tuotantoon (Build)
+## Rakentaminen tuotantoon (Build)
 
 Projektin optimoitu tuotantoversio luodaan `dist/` -kansioon:
 
@@ -61,7 +61,7 @@ Projektin optimoitu tuotantoversio luodaan `dist/` -kansioon:
 npm run build
 
 
-## ☁️ Julkaisu (Deployment)
+## Julkaisu (Deployment)
 
 Projekti on konfiguroitu toimimaan **Railway**-alustalla (`railway.toml`), mutta se voidaan julkaista missä tahansa staattisia sivuja tukevassa palvelussa (esim. Vercel, Netlify, GitHub Pages).
 
