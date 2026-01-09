@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base configuration */
+body {
+    @apply bg-cream text-brown font-serif transition-colors duration-300;
+    @apply dark:bg-lacquer dark:text-cream;
+    background-size: 40px 40px;
+    background-image: theme('backgroundImage.grid-pattern');
+}
+
+::selection {
+    @apply bg-gold text-white;
+    @apply dark:bg-gold dark:text-lacquer;
+}
+
+/* --- SCROLL PROGRESS BAR --- */
+.scroll-progress-bar {
+    @apply h-full w-0 transition-all duration-100 ease-out;
+    background: linear-gradient(90deg, theme('colors.gold.DEFAULT'), theme('colors.gold.light'));
+}
+
+/* --- GLASS CARD --- */
+.glass-card {
+    @apply bg-glass border border-gold/15 shadow-sm transition-all duration-300;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Kintsugi Mode (Dark) overrides */
+:is(.dark .glass-card) {
+    background: linear-gradient(180deg, rgba(28, 21, 16, 0.8) 0%, rgba(15, 9, 5, 0.9) 100%);
+    @apply border border-gold/40 shadow-none;
+    /* The gold crack */
+}
+
+.glass-card:hover {
+    @apply border-gold shadow-lg;
+    box-shadow: 0 25px 50px -12px rgba(104, 59, 43, 0.2);
+}
+
+:is(.dark .glass-card:hover) {
+    @apply border-gold;
+    box-shadow: 0 0 15px rgba(176, 132, 1, 0.15);
+    /* Glowing gold crack */
+}
+
+/* --- NAVIGATION --- */
+.nav-link {
+    @apply text-brown-light font-medium text-sm relative transition-colors duration-300;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    @apply text-brown font-semibold;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute w-0 h-0.5 bottom-0 left-0 bg-gold transition-all duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    @apply w-full;
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    @apply px-8 py-4 rounded-xl text-white font-semibold shadow-lg transition-all duration-300 flex items-center justify-center min-w-[160px] text-center;
+    background: linear-gradient(135deg, theme('colors.gold.DEFAULT'), theme('colors.gold.light'));
+    box-shadow: 0 4px 15px rgba(176, 132, 1, 0.25);
+}
+
+.btn-primary:hover {
+    @apply -translate-y-0.5;
+    box-shadow: 0 8px 20px rgba(176, 132, 1, 0.35);
+}
+
+.btn-outline {
+    @apply px-8 py-4 rounded-xl border border-brown text-brown transition-all duration-300 flex items-center justify-center min-w-[160px] text-center;
+    @apply dark:border-gold dark:text-gold;
+}
+
+.btn-outline:hover {
+    @apply bg-brown text-white border-brown;
+    @apply dark:bg-gold dark:text-lacquer dark:border-gold;
+}
+
+/* --- CHAT COMPONENTS --- */
+.user-message {
+    background: linear-gradient(135deg, theme('colors.gold.DEFAULT'), #C99601);
+    @apply text-white shadow-md rounded-tl-2xl rounded-tr-none rounded-bl-2xl rounded-br-2xl;
+}
+
+.bot-message {
+    @apply bg-white/90 border border-beige text-brown shadow-sm rounded-tl-none rounded-tr-2xl rounded-bl-2xl rounded-br-2xl;
+    @apply dark:bg-lacquer dark:text-cream dark:border-gold/30;
+}
+
+/* src/styles.css lisäys */
+.bot-message ul {
+    @apply list-disc ml-4 my-2;
+}
+
+.bot-message ol {
+    @apply list-decimal ml-4 my-2;
+}
+
+.bot-message p {
+    @apply mb-2 last:mb-0;
+}
+
+.bot-message strong {
+    @apply font-bold text-brown;
+    @apply dark:text-gold;
+}
+
+.bot-message a {
+    @apply text-gold hover:underline;
+}
+
+.suggestion-chip {
+    @apply px-3 py-1.5 rounded-full bg-white/50 border border-beige text-brown-light text-xs font-medium transition-all duration-300 whitespace-nowrap;
+    @apply dark:bg-lacquer/50 dark:border-gold/30 dark:text-beige;
+}
+
+.suggestion-chip:hover {
+    @apply bg-gold/10 text-gold border-gold/50;
+    @apply dark:bg-gold/20 dark:text-gold dark:border-gold;
+}
+
+/* --- ANIMATIONS --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active .reveal-child {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+/* Typing Animation */
+.typing-indicator .dot {
+    @apply w-1.5 h-1.5 bg-brown-light rounded-full;
+    animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator .dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* --- FLOATING BUTTONS */
+.back-to-top-btn,
+.floating-chat-btn {
+    @apply translate-y-4;
+}
+
+.back-to-top-btn.visible,
+.floating-chat-btn.visible {
+    @apply opacity-100 pointer-events-auto translate-y-0;
+}
+
+/* View Transitions API overrides */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* Ensure the new view is always on top during the transition for the clip effect */
+::view-transition-new(root) {
+    z-index: 1000;
+}
+
+/* --- RETRO WINDOWS 95 MODE (EASTER EGG) --- */
+html.retro-win95 body {
+    background-color: #008080 !important;
+    /* Classic Teal */
+    background-image: none !important;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif !important;
+    color: black !important;
+}
+
+html.retro-win95 .glass-card,
+html.retro-win95 header,
+html.retro-win95 footer,
+html.retro-win95 #mobile-menu,
+html.retro-win95 #chat-container {
+    background: #c0c0c0 !important;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #0a0a0a, inset 2px 2px #fff, inset -2px -2px #808080 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+}
+
+html.retro-win95 .glass-card:hover {
+    transform: none !important;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #0a0a0a, inset 2px 2px #fff, inset -2px -2px #808080 !important;
+}
+
+html.retro-win95 h1,
+html.retro-win95 h2,
+html.retro-win95 h3,
+html.retro-win95 .text-gold,
+html.retro-win95 .text-brown,
+html.retro-win95 .text-brown-light {
+    color: #000080 !important;
+    /* Navy Blue for headers */
+    text-shadow: none !important;
+}
+
+html.retro-win95 .btn-primary,
+html.retro-win95 .btn-outline {
+    background: #c0c0c0 !important;
+    color: black !important;
+    border: 2px solid #fff !important;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf !important;
+    border-radius: 0 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+html.retro-win95 .btn-primary:active,
+html.retro-win95 .btn-outline:active {
+    box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf !important;
+    transform: translate(1px, 1px);
+}
+
+html.retro-win95 .scroll-progress-bar {
+    background: #000080 !important;
+    border-bottom: 2px solid #fff;
+}
+
+/* Hide standard toggle in Retro Mode */
+html.retro-win95 .theme-toggle {
+    display: none !important;
+}
+
+/* Retro Floating Buttons */
+html.retro-win95 .back-to-top-btn,
+html.retro-win95 .floating-chat-btn {
+    background: #c0c0c0 !important;
+    color: black !important;
+    border: 2px outset #fff !important;
+    border-radius: 0 !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.retro-win95 .back-to-top-btn:active,
+html.retro-win95 .floating-chat-btn:active {
+    border: 2px inset #fff !important;
+}
+
+/* Retro Chat User Message */
+html.retro-win95 .user-message {
+    background: #000080 !important;
+    /* Classic Selected Item Blue */
+    color: white !important;
+    border: 2px inset #fff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Undo Button Style (Injected via JS) */
+#retro-undo-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    padding: 10px 20px;
+    background: #c0c0c0;
+    color: black;
+    font-family: "MS Sans Serif", sans-serif;
+    font-weight: bold;
+    border: 2px outset #fff;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #000;
+}
+
+#retro-undo-btn:active {
+    border: 2px inset #fff;
+    transform: translate(1px, 1px);
+}
+

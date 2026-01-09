@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fi" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-i18n="meta.title">Juho Kukkonen | IT Project Manager & BI Specialist</title>
+    <meta name="description"
+        content="Kokenut IT-projektipäällikkö ja BI-asiantuntija. Yhdistän liiketoiminnan tarpeet ja teknologiaosaamisen.">
+    <meta name="google-site-verification" content="vgGsO1xVwIW_Py34Cs3HckiWL2sO8mSs3H4Ke33XQ_o" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kukkonen.org/">
+    <meta property="og:title" content="Juho Kukkonen | IT Project Manager & BI Specialist">
+    <meta property="og:description" content="Kokenut IT-projektipäällikkö ja BI-asiantuntija.">
+    <meta property="og:image" content="https://kukkonen.org/profile.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Juho Kukkonen | IT Project Manager & BI Specialist">
+    <meta name="twitter:description" content="Kokenut IT-projektipäällikkö ja BI-asiantuntija.">
+    <meta name="twitter:image" content="https://kukkonen.org/profile.jpg">
+
+    <link rel="icon" type="image/svg" href="/jk.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="module" src="/src/main.js"></script>
+</head>
+
+<body class="antialiased selection:bg-gold selection:text-white dark:selection:bg-gold dark:selection:text-lacquer bg-cream text-brown dark:bg-lacquer dark:text-cream transition-colors duration-300">
+
+    <div class="fixed top-0 left-0 w-full h-1 z-[100] bg-transparent pointer-events-none">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
+    <header class="fixed w-full top-0 z-50 backdrop-blur-md bg-cream/90 dark:bg-lacquer/90 border-b border-brown/5 dark:border-gold/10 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="#home" class="flex items-center group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mr-3 shadow-lg shadow-gold/20 group-hover:shadow-gold/40 transition">
+                        <span class="text-white font-bold text-lg">JK</span>
+                    </div>
+                    <span class="text-brown font-semibold text-lg tracking-tight hover:text-gold transition-colors">Juho Kukkonen</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link" data-target="home" data-i18n="nav.home">Etusivu</a>
+                    <a href="#skills" class="nav-link" data-target="skills" data-i18n="nav.skills">Osaaminen</a>
+                    <a href="#cv" class="nav-link" data-target="cv" data-i18n="nav.cv">CV</a>
+                    <a href="#projects" class="nav-link" data-target="projects" data-i18n="nav.projects">Harrasteprojektit</a>
+                    <a href="#chat" class="nav-link" data-target="chat" data-i18n="nav.chat">AI Assistant</a>
+
+                    <div class="flex items-center gap-4 pl-4 border-l border-brown/10 dark:border-gold/10">
+                        <div class="flex items-center space-x-2">
+                            <button class="lang-btn hover:text-brown dark:hover:text-gold transition text-sm font-bold uppercase" data-lang="fi">FI</button>
+                            <span class="text-brown/30 dark:text-gold/30">|</span>
+                            <button class="lang-btn hover:text-brown dark:hover:text-gold transition text-sm font-bold uppercase" data-lang="en">EN</button>
+                        </div>
+
+                        <button class="theme-toggle p-2 rounded-full text-brown dark:text-gold hover:bg-brown/10 dark:hover:bg-gold/10 transition"
+                            aria-label="Toggle Dark Mode" title="Vaihda teemaa">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-brown-light dark:text-beige hover:text-brown focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-brown/10 dark:border-gold/10 bg-cream dark:bg-lacquer shadow-xl rounded-b-xl p-4 absolute left-0 right-0">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="block px-4 py-2 text-brown-light dark:text-beige hover:bg-brown/5 rounded-lg" data-i18n="nav.home">Etusivu</a>
+                    <a href="#skills" class="block px-4 py-2 text-brown-light dark:text-beige hover:bg-brown/5 rounded-lg" data-i18n="nav.skills">Osaaminen</a>
+                    <a href="#cv" class="block px-4 py-2 text-brown-light dark:text-beige hover:bg-brown/5 rounded-lg" data-i18n="nav.cv">CV</a>
+                    <a href="#projects" class="block px-4 py-2 text-brown-light dark:text-beige hover:bg-brown/5 rounded-lg" data-i18n="nav.projects">Harrasteprojektit</a>
+                    <a href="#chat" class="block px-4 py-2 text-gold font-medium hover:bg-brown/5 rounded-lg" data-i18n="nav.chat">AI Assistant</a>
+                    
+                    <div class="flex items-center justify-between px-4 py-2 border-t border-brown/5 dark:border-gold/5 mt-2 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <button class="lang-btn font-bold text-brown dark:text-gold" data-lang="fi">FI</button>
+                            <span class="text-brown/30">|</span>
+                            <button class="lang-btn text-brown-light" data-lang="en">EN</button>
+                        </div>
+                        <button class="theme-toggle p-2 rounded-full text-brown dark:text-gold hover:bg-brown/10 transition">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6">
+
+        <section id="home" class="min-h-[90vh] flex items-center justify-center py-24 page active reveal">
+            <div class="text-center max-w-4xl mx-auto relative z-10">
+
+                <div class="relative inline-block mb-10 group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold to-gold-light rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <img src="profile.jpg" alt="Juho Kukkonen" width="176" height="176"
+                        class="relative w-44 h-44 rounded-full object-cover border-4 border-white shadow-2xl">
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold text-brown dark:text-gold mb-6 tracking-tight leading-tight reveal-child">
+                    Juho Kukkonen
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gold font-medium mb-8 reveal-child delay-100" data-i18n="hero.role">
+                    Project Manager | Solution Analyst | BI
+                </p>
+
+                <p class="max-w-2xl mx-auto text-brown-light dark:text-beige text-lg mb-12 leading-relaxed reveal-child delay-200" data-i18n="hero.desc">
+                    Yhdistän liiketoiminnan tarpeet ja teknologiset ratkaisut. Johdan projekteja, jotka muuttavat datan päätöksenteoksi ja monimutkaiset vaatimukset toimiviksi järjestelmiksi.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-5 reveal-child delay-300">
+                    <a href="#chat" class="btn-primary">
+                        <i class="fas fa-comments mr-2"></i> <span data-i18n="hero.cta_chat">AI Chatbot</span>
+                    </a>
+                    <a href="#skills" class="btn-outline">
+                        <span data-i18n="hero.cta_skills">Osaaminen</span>
+                    </a>
+                    <a href="#cv" class="btn-outline">
+                        <span data-i18n="hero.cta_cv">Työkokemus</span>
+                    </a>
+                    <a href="#projects" class="btn-outline">
+                        <span data-i18n="hero.cta_projects">Harrasteprojektit</span>
+                    </a>
+                    <a href="/CV_JUHO_KUKKONEN.pdf" class="btn-outline" download>
+                        <i class="fas fa-download mr-2"></i> <span data-i18n="hero.cta_download">Lataa CV</span>
+                    </a>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-brown/10 flex flex-wrap justify-center gap-10 text-brown-light dark:text-beige text-3xl reveal-child delay-400">
+                    <a href="https://www.linkedin.com/in/juho-kukkonen-96024913a/" target="_blank" aria-label="LinkedIn"
+                        class="hover:text-gold hover:scale-110 transition duration-300"><i class="fab fa-linkedin text-2xl"></i></a>
+                    <a href="https://github.com/Javedom" target="_blank" aria-label="GitHub"
+                        class="hover:text-brown hover:scale-110 transition duration-300"><i class="fab fa-github text-2xl"></i></a>
+                    <a href="mailto:juho.kukkonen@gmail.com" aria-label="Email"
+                        class="hover:text-gold hover:scale-110 transition duration-300"><i class="fas fa-envelope text-2xl"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 page">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown dark:text-gold mb-4" data-i18n="skills.title">Ammatillinen osaaminen</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-gold to-gold-light mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden group reveal delay-100">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-network-wired text-8xl text-gold"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6 text-gold text-2xl border border-gold/20">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brown" data-i18n="skills.card_pm_title">Projektinhallinta</h3>
+                    <p class="text-brown-light dark:text-beige leading-relaxed text-sm" data-i18n="skills.card_pm_desc">
+                        Laajojen IT-järjestelmien (ERP/SaaS) käyttöönottoprojektit. Vaatimusmäärittely, aikataulutus ja sidosryhmäviestintä.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden group reveal delay-200">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-code-branch text-8xl text-gold"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6 text-gold text-2xl border border-gold/20">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brown" data-i18n="skills.card_tech_title">Tekninen Arkkitehtuuri</h3>
+                    <p class="text-brown-light dark:text-beige leading-relaxed text-sm" data-i18n="skills.card_tech_desc">
+                        SQL-tietokannat, Azure-ympäristöt ja API-integraatiot.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden group reveal delay-300">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-chart-area text-8xl text-gold"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6 text-gold text-2xl border border-gold/20">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brown" data-i18n="skills.card_bi_title">Business Intelligence</h3>
+                    <p class="text-brown-light dark:text-beige leading-relaxed text-sm" data-i18n="skills.card_bi_desc">
+                        Controller-tausta yhdistettynä moderniin data-analytiikkaan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-l-gold reveal delay-100">
+                    <h3 class="text-lg font-bold text-brown mb-6 flex items-center">
+                        <span class="bg-gold/20 text-gold p-2 rounded-lg mr-3"><i class="fas fa-layer-group"></i></span>
+                        <span data-i18n="skills.list_tech_title">Teknologiat & Alustat</span>
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-3 text-brown-light dark:text-beige text-sm">
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_1">SQL</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_2">Azure Data Factory</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_3">Power BI</span></div>
+                        </div>
+                        <div class="space-y-3 text-brown-light dark:text-beige text-sm">
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_4">Python & AI</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_5">Firebase</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-gold mr-2"></i> <span data-i18n="skills.list_tech_6">React</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-l-brown reveal delay-200">
+                    <h3 class="text-lg font-bold text-brown mb-6 flex items-center">
+                        <span class="bg-brown/10 text-brown p-2 rounded-lg mr-3"><i class="fas fa-briefcase"></i></span>
+                        <span data-i18n="skills.list_biz_title">Liiketoimintaosaaminen</span>
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-3 text-brown-light dark:text-beige text-sm">
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_1">Ketterä kehitys</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_2">Vaatimusmäärittely</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_3">Kilpailutukset</span></div>
+                        </div>
+                        <div class="space-y-3 text-brown-light dark:text-beige text-sm">
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_4">Taloushallinto</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_5">Riskienhallinta</span></div>
+                            <div class="flex items-center"><i class="fas fa-check text-brown mr-2"></i> <span data-i18n="skills.list_biz_6">Kansainvälistyminen</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cv" class="py-24 page">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown mb-4" data-i18n="cv.title">Työkokemus</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-gold to-gold-light mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+
+                <div class="group reveal delay-100">
+                    <div id="cv-card-intoit" class="glass-card rounded-2xl p-6 md:p-8 hover:border-gold transition-all duration-300 cursor-pointer relative z-10 overflow-hidden">
+                        
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-brown" data-i18n="cv.job1_title">Projektipäällikkö & Controller</h3>
+                                <div class="text-gold font-medium mt-1" data-i18n="cv.job1_company">Intoit Oy</div>
+                            </div>
+                            <div class="text-sm text-brown-light dark:text-beige bg-brown/5 px-3 py-1 rounded-full mt-2 md:mt-0 border border-brown/10" data-i18n="cv.job1_time">
+                                2019 - Nykyinen
+                            </div>
+                        </div>
+
+                        <p class="text-brown-light dark:text-beige mb-6 leading-relaxed" data-i18n="cv.job1_desc">
+                            Vastaan Movit-kuljetushallintajärjestelmän laajoista käyttöönottoprojekteista.
+                        </p>
+
+                        <ul class="space-y-2 mb-6 text-sm text-brown-light dark:text-beige">
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet1">Projektin tavoitteiden määrittely...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet2">Laajat käyttöönottoprojektit...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet3">Projektien suunnittelu...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet4">Ratkaisuvaihtoehdot...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet5">SQL & BI-raportointi...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet6">Taloushallinto...</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">•</span> <span data-i18n="cv.job1_bullet7">Tukitiimin avustaminen...</span></li>
+                        </ul>
+
+                        <div class="accordion-content opacity-0 max-h-0 transition-all duration-300 ease-in-out border-t border-brown/10 pt-0 mt-0 overflow-hidden">
+                            <div class="space-y-8 text-brown-light dark:text-beige leading-relaxed pt-6">
+                                
+                                <div class="animate-fade-in">
+                                    <h4 class="text-lg font-bold text-brown mb-3 flex items-center">
+                                        <span class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                                        <span data-i18n="cv.acc_h1">Strateginen projektijohtaminen</span>
+                                    </h4>
+                                    <ul class="space-y-3 pl-11 list-disc marker:text-gold text-sm">
+                                        <li data-i18n="cv.acc_1_1"></li>
+                                        <li data-i18n="cv.acc_1_2"></li>
+                                        <li data-i18n="cv.acc_1_3"></li>
+                                        <li data-i18n="cv.acc_1_4"></li>
+                                        <li data-i18n="cv.acc_1_5"></li>
+                                        <li data-i18n="cv.acc_1_6"></li>
+                                    </ul>
+                                </div>
+
+                                <div class="animate-fade-in">
+                                    <h4 class="text-lg font-bold text-brown mb-3 flex items-center">
+                                        <span class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                                        <span data-i18n="cv.acc_h2">Asiakkuuksien hallinta</span>
+                                    </h4>
+                                    <ul class="space-y-3 pl-11 list-disc marker:text-gold text-sm">
+                                        <li data-i18n="cv.acc_2_1"></li>
+                                        <li data-i18n="cv.acc_2_2"></li>
+                                        <li data-i18n="cv.acc_2_3"></li>
+                                        <li data-i18n="cv.acc_2_4"></li>
+                                    </ul>
+                                </div>
+
+                                <div class="animate-fade-in">
+                                    <h4 class="text-lg font-bold text-brown mb-3 flex items-center">
+                                        <span class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center mr-3 text-sm font-bold">3</span>
+                                        <span data-i18n="cv.acc_h3">Tekninen asiantuntijuus</span>
+                                    </h4>
+                                    <ul class="space-y-3 pl-11 list-disc marker:text-gold text-sm">
+                                        <li data-i18n="cv.acc_3_1"></li>
+                                        <li data-i18n="cv.acc_3_2"></li>
+                                        <li data-i18n="cv.acc_3_3"></li>
+                                        <li data-i18n="cv.acc_3_4"></li>
+                                    </ul>
+                                </div>
+
+                                <div class="animate-fade-in">
+                                    <h4 class="text-lg font-bold text-brown mb-3 flex items-center">
+                                        <span class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center mr-3 text-sm font-bold">4</span>
+                                        <span data-i18n="cv.acc_h4">Taloushallinto</span>
+                                    </h4>
+                                    <ul class="space-y-3 pl-11 list-disc marker:text-gold text-sm">
+                                        <li data-i18n="cv.acc_4_1"></li>
+                                        <li data-i18n="cv.acc_4_2"></li>
+                                        <li data-i18n="cv.acc_4_3"></li>
+                                        <li data-i18n="cv.acc_4_4"></li>
+                                    </ul>
+                                </div>
+
+                                <div class="animate-fade-in">
+                                    <h4 class="text-lg font-bold text-brown mb-3 flex items-center">
+                                        <span class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center mr-3 text-sm font-bold">5</span>
+                                        <span data-i18n="cv.acc_h5">Strateginen kehitys</span>
+                                    </h4>
+                                    <ul class="space-y-3 pl-11 list-disc marker:text-gold text-sm">
+                                        <li data-i18n="cv.acc_5_1"></li>
+                                        <li data-i18n="cv.acc_5_2"></li>
+                                        <li data-i18n="cv.acc_5_3"></li>
+                                        <li data-i18n="cv.acc_5_4"></li>
+                                        <li data-i18n="cv.acc_5_5"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-2 text-xs text-gold font-medium uppercase tracking-wider opacity-80" id="cv-toggle-text">
+                            <span data-i18n="cv.show_more">Lue lisää</span> <i class="fas fa-chevron-down ml-1 transition-transform duration-300"></i>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="tech-tag px-3 py-1 rounded-md text-xs bg-gold/10 text-gold border border-gold/20">Project Mgmt</span>
+                            <span class="tech-tag px-3 py-1 rounded-md text-xs bg-gold/10 text-gold border border-gold/20">SQL</span>
+                            <span class="tech-tag px-3 py-1 rounded-md text-xs bg-gold/10 text-gold border border-gold/20">Finance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group reveal delay-200">
+                    <div class="glass-card rounded-2xl p-6 md:p-8 opacity-90 hover:opacity-100 transition duration-300">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-brown" data-i18n="cv.job2_title">Reittisuunnittelija</h3>
+                                <div class="text-brown-light dark:text-beige font-medium mt-1" data-i18n="cv.job2_company">Vihdin kunta / Liperin kunta</div>
+                            </div>
+                            <div class="text-sm text-brown-light dark:text-beige bg-brown/5 px-3 py-1 rounded-full mt-2 md:mt-0 border border-brown/10" data-i18n="cv.job2_time">
+                                2017 - 2019
+                            </div>
+                        </div>
+                        <p class="text-brown-light dark:text-beige mb-4" data-i18n="cv.job2_desc">
+                            Koulukuljetusten ja joukkoliikenteen optimointi, kilpailutusten valmistelu ja logistinen suunnittelu.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag px-3 py-1 rounded-md text-xs bg-brown/5 text-brown-light dark:text-beige border border-brown/10">Logistiikka</span>
+                            <span class="tech-tag px-3 py-1 rounded-md text-xs bg-brown/5 text-brown-light dark:text-beige border border-brown/10">Julkiset hankinnat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal delay-300">
+                <a href="/CV_JUHO_KUKKONEN.pdf" class="inline-flex items-center text-gold hover:text-brown font-medium transition group" download>
+                    <span data-i18n="cv.download_full">Lataa täysi ansioluettelo (PDF)</span> 
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 page">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown mb-4" data-i18n="projects.title">Harrastusportfolio</h2>
+                <p class="text-brown-light dark:text-beige max-w-2xl mx-auto" data-i18n="projects.subtitle">Harrastus- ja konseptiprojekteja.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-100">
+                    <div class="h-3 bg-gradient-to-r from-gold to-gold-light"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p1_title">End-to-End Data Pipeline</h3>
+                            <i class="fas fa-cloud text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p1_desc">
+                            Azure-pilvipalveluihin rakennettu moderni dataputki.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-brown/10">
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">Azure</span>
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">Databricks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-200">
+                    <div class="h-3 bg-gradient-to-r from-brown to-brown-light"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p2_title">POC-puhelubotti</h3>
+                            <i class="fas fa-microphone text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p2_desc">
+                            Suomen kielelle optimoitu puheohjattava AI.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-brown/10">
+                            <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">Python</span>
+                            <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">OpenAI API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-300">
+                    <div class="h-3 bg-gradient-to-r from-gold-light to-gold"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p3_title">AI-chatbotit</h3>
+                            <i class="fas fa-robot text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-4 leading-relaxed" data-i18n="projects.p3_desc1">
+                            Älykäs asiakaspalvelubotti verkkokauppaan.
+                        </p>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p3_desc2">
+                            Tämän sivun AI-chatbot on tehty Google Gemini API:a hyväksi käyttäen.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-brown/10">
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">Gemini API</span>
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">OpenAI API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card clickable-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-100">
+                    <div class="h-3 bg-gradient-to-r from-brown-light to-brown"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p4_title">Hilman Kauppa</h3>
+                            <i class="fas fa-shopping-cart text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-4 leading-relaxed" data-i18n="projects.p4_desc1">
+                            Oma Shopify-verkkokauppa.
+                        </p>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p4_desc2">
+                            Google-, Facebook- ja Instagram-mainostaminen.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-brown/10 relative z-20">
+                            <div class="flex gap-2">
+                                <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">Shopify</span>
+                                <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">Ads</span>
+                            </div>
+                            <a href="https://hilmankauppa.com/" target="_blank" class="text-brown-light dark:text-beige hover:text-brown text-sm transition stretched-link">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.p4_link">Avaa</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-200">
+                    <div class="h-3 bg-gradient-to-r from-gold to-gold-light"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p5_title">Kokeelliset ML-mallit</h3>
+                            <i class="fas fa-brain text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p5_desc">
+                            Teen erilaisia kokeellisia koneoppimismalleja ja simulaatioita.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-brown/10">
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">Python</span>
+                            <span class="text-xs text-gold bg-gold/10 px-2 py-1 rounded border border-gold/10">ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card clickable-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full reveal delay-300">
+                    <div class="h-3 bg-gradient-to-r from-brown to-brown-light"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-xl font-bold text-brown group-hover:text-gold transition" data-i18n="projects.p6_title">Web- & Mobiilisovellukset</h3>
+                            <i class="fas fa-laptop-code text-brown-light dark:text-beige text-xl"></i>
+                        </div>
+                        <p class="text-brown-light dark:text-beige text-sm mb-4 leading-relaxed" data-i18n="projects.p6_desc1">
+                            Mobiilikehityksen (iOS/Android) opiskelua React Native -kehyksellä.
+                        </p>
+                        <p class="text-brown-light dark:text-beige text-sm mb-6 flex-1 leading-relaxed" data-i18n="projects.p6_desc2">
+                            Moderni full-stack-sovellus Conversation Cards.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-brown/10 relative z-20">
+                            <div class="flex gap-2">
+                                <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">React</span>
+                                <span class="text-xs text-brown bg-brown/10 px-2 py-1 rounded border border-brown/10">Gemini</span>
+                            </div>
+                            <a href="https://conversationcards.lol/" target="_blank" class="text-brown-light dark:text-beige hover:text-brown text-sm transition stretched-link">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.p6_link">Avaa app</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal delay-300">
+                <a href="https://github.com/Javedom" target="_blank"
+                    class="inline-flex items-center px-6 py-3 bg-brown hover:bg-brown-dark text-white rounded-xl border border-brown-light transition">
+                    <i class="fab fa-github mr-2"></i> github.com/Javedom
+                </a>
+            </div>
+        </section>
+
+        <section id="chat" class="py-24 page reveal">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown mb-4" data-i18n="chat.title">Virtuaalinen Avustaja</h2>
+                <p class="text-brown-light dark:text-beige" data-i18n="chat.subtitle">Kysy kokemuksestani tai projekteista.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div id="chat-container" class="bg-white dark:bg-lacquer-surface border border-beige dark:border-gold/30 shadow-2xl shadow-brown/5 rounded-2xl flex flex-col h-[600px]">
+
+                    <div class="px-6 py-4 border-b border-beige dark:border-gold/20 flex items-center justify-between bg-cream/50 dark:bg-lacquer/50 backdrop-blur-sm rounded-t-2xl">
+                        <div class="flex items-center gap-3">
+                            <div class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            </div>
+                            <span class="text-sm font-semibold text-brown tracking-wide" data-i18n="chat.status">Juhon AI-avustaja</span>
+                        </div>
+                        <div class="text-xs text-brown-light dark:text-beige font-medium"><i class="fas fa-bolt text-gold mr-1"></i> Powered by Gemini</div>
+                    </div>
+
+                    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 relative bg-cream/30 dark:bg-lacquer/30"></div>
+
+                    <div class="p-4 bg-white dark:bg-lacquer-surface border-t border-beige dark:border-gold/20 rounded-b-2xl">
+                        <div id="chat-suggestions" class="flex gap-2 mb-3 overflow-x-auto pb-3">
+                            <button class="suggestion-chip">
+                                💡 <span data-i18n="chat.sugg_1">Miksi Juho kannattaa palkata?</span>
+                            </button>
+                            <button class="suggestion-chip">
+                                🤔 <span data-i18n="chat.sugg_2">Millainen tyyppi Juho on?</span>
+                            </button>
+                            <button class="suggestion-chip">
+                                📋 <span data-i18n="chat.sugg_3">Tiivistä Juhon profiili</span>
+                            </button>
+                            <button class="suggestion-chip">
+                                🤖 <span data-i18n="chat.sugg_4">Miten Juho hyödyntää AI:ta?</span>
+                            </button>
+                            <button class="suggestion-chip">
+                                🔎 <span data-i18n="chat.sugg_5">Millaisiin rooleihin Juho sopisi?</span>
+                            </button>
+                            <button class="suggestion-chip">
+                                💰 <span data-i18n="chat.sugg_6">Mitähän se pyytää palkaksi?</span>
+                            </button>
+                        </div>
+
+                        <form id="chat-form" class="relative flex items-center">
+                            <textarea id="chat-input" rows="1"
+                                class="w-full bg-cream dark:bg-lacquer-surface dark:text-cream dark:placeholder-white/30 border border-beige text-brown rounded-xl px-5 py-4 pr-14 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition placeholder-brown-light/50 font-light resize-none overflow-hidden min-h-[58px]"
+                                placeholder="Kirjoita viestisi tähän..." data-i18n="chat.input_placeholder"></textarea>
+                            <button type="submit" aria-label="Send message"
+                                class="absolute right-2 p-2 bg-gold hover:bg-gold-light text-white rounded-lg transition shadow-lg self-end mb-1.5 mr-1">
+                                <i class="fas fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-brown/10 dark:border-gold/10 bg-cream dark:bg-lacquer text-brown-light dark:text-beige py-12 mt-12">
+        <div class="container mx-auto px-6 flex flex-col items-center justify-center">
+
+            <div class="mb-8 text-center">
+                <h3 class="text-brown font-bold text-lg mb-1">Juho Kukkonen</h3>
+                <p class="text-sm text-brown-light dark:text-beige" data-i18n="footer.role">IT Project Manager & Business Intelligence</p>
+            </div>
+
+            <div class="flex space-x-8 text-2xl">
+                <a href="https://www.linkedin.com/in/juho-kukkonen-96024913a/" aria-label="LinkedIn"
+                    class="hover:text-gold hover:scale-110 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Javedom" aria-label="GitHub"
+                    class="hover:text-brown hover:scale-110 transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="mailto:juho.kukkonen@gmail.com" aria-label="Email"
+                    class="hover:text-gold hover:scale-110 transition duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 text-xs text-brown-light dark:text-beige/50" data-i18n="footer.rights">
+            &copy; 2025 Juho Kukkonen.
+        </div>
+    </footer>
+
+    <a href="#chat"
+        class="floating-chat-btn fixed bottom-20 right-5 w-12 h-12 bg-gold text-white rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40"
+        title="Kysy AI:lta" aria-label="Open Chat">
+        <i class="fas fa-comments"></i>
+    </a>
+
+    <button id="back-to-top"
+        class="back-to-top-btn fixed bottom-5 right-5 w-12 h-12 bg-gold text-white rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40"
+        title="Palaa ylös" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>

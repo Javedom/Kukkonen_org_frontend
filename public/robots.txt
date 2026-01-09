@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Verkkotunnus index.html:n metatietojen perusteella
+Sitemap: https://kukkonen.org/sitemap.xml
