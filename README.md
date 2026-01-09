@@ -59,7 +59,7 @@ Projektin optimoitu tuotantoversio luodaan `dist/` -kansioon:
 
 ```bash
 npm run build
-
+```
 
 ## Julkaisu (Deployment)
 
@@ -90,3 +90,7 @@ Projekti on konfiguroitu toimimaan **Railway**-alustalla (`railway.toml`), mutta
 ├── package.json         # Riippuvuudet ja skriptit
 ├── tailwind.config.js   # Tailwind-asetukset
 └── vite.config.js       # Vite-asetukset
+```
+
+## Lisenssi
+Tämä projekti on tarkoitettu portfolio-käyttöön. Lähdekoodi on julkinen, mutta sisällön (kuten CV:n ja kuvien) tekijänoikeudet kuuluvat Juho Kukkoselle.
